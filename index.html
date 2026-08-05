@@ -159,7 +159,7 @@
 
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight font-tajawal">
                     وجهتك لإنهاء كافة <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500">معاملات السفر والشنجن</span> بالريال العماني
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500">معاملات السفر والشنجن</span> 
                 </h1>
                 <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
                     نقدم خدمات متكاملة تتضمن حجز تذاكر الطيران، تجهيز ملفات تأشيرة الشنجن الأوروبية المعتمدة، التأمين الصحي المعتمد للسفر، وحجوزات السيارات والفنادق بأسعار تنافسية.
@@ -420,7 +420,7 @@
                             
                             <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
                                 <input type="checkbox" id="incInsurance" checked onchange="calculateSchengenCost()" class="rounded text-brand-gold focus:ring-brand-gold w-4 h-4">
-                                <span>إصدار وثيقة التأمين الصحي المعتمد (+10 ر.ع للشخص)</span>
+                                <span>إصدار وثيقة التأمين الصحي المعتمد (+6 ر.ع للشخص)</span>
                             </label>
 
                             <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
@@ -434,7 +434,7 @@
                             <div>
                                 <span class="block text-xs text-slate-400">التكلفة التقديرية لإعداد الملف:</span>
                                 <div class="text-3xl font-black text-brand-gold font-tajawal mt-1">
-                                    <span id="totalCostOMR">25</span> <span class="text-base font-bold">ريال عماني</span>
+                                    <span id="totalCostOMR">23</span> <span class="text-base font-bold">ريال عماني</span>
                                 </div>
                             </div>
                             <button onclick="sendCalculatedBooking()" class="bg-brand-gold hover:bg-brand-goldHover text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow transition flex items-center gap-1.5">
@@ -717,9 +717,9 @@
             let baseRate = 25;
             let total = baseRate * pax;
 
-            // Insurance approx 10 OMR per person
+            // Insurance approx 6 OMR per person
             if (incInsurance) {
-                total += (10 * pax);
+                total += (6 * pax);
             }
 
             // Car reservation flat 15 OMR per group
