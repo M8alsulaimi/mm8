@@ -159,7 +159,7 @@
 
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight font-tajawal">
                     وجهتك لإنهاء كافة <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500">معاملات السفر والشنجن</span> 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500">معاملات السفر والشنجن</span> بالريال العماني
                 </h1>
                 <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
                     نقدم خدمات متكاملة تتضمن حجز تذاكر الطيران، تجهيز ملفات تأشيرة الشنجن الأوروبية المعتمدة، التأمين الصحي المعتمد للسفر، وحجوزات السيارات والفنادق بأسعار تنافسية.
@@ -184,7 +184,7 @@
                     </div>
                     <div>
                         <span class="block text-2xl font-black text-brand-gold">OMR</span>
-                        <span class="text-xs text-slate-300">أسعار لا تقبل المنافسة  </span>
+                        <span class="text-xs text-slate-300">أسعار شفافة بالريال العُماني</span>
                     </div>
                     <div>
                         <span class="block text-2xl font-black text-brand-gold">24/7</span>
@@ -420,7 +420,7 @@
                             
                             <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
                                 <input type="checkbox" id="incInsurance" checked onchange="calculateSchengenCost()" class="rounded text-brand-gold focus:ring-brand-gold w-4 h-4">
-                                <span>إصدار وثيقة التأمين الصحي المعتمد (+0 ر.ع للشخص)</span>
+                                <span>إصدار وثيقة التأمين الصحي المعتمد (+10 ر.ع للشخص)</span>
                             </label>
 
                             <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
@@ -522,7 +522,7 @@
                     <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-5">
                         <i class="fa-solid fa-money-bill-wave"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">أسعار لا تقبل المنافسة  </h3>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">أسعار شفافة بالريال العماني</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">
                         لا توجد رسوم خفية. تكاليف خدماتنا واضحة ومعلنة ومناسبة لجميع المسافرين.
                     </p>
@@ -627,13 +627,13 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/96899290140?text=مرحباً%20أستاذ%20مدين%20السليمي،%20أود%20الاستفسار%20عن%20خدمات%20السفر" 
+    <a href="https://api.whatsapp.com/send?phone=96899290140&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D8%B3%D8%AA%D8%A7%D0%B0%20%D9%85%D8%AF%D9%8A%D9%86%20%D8%A7%D9%84%D8%B3%D9%84%D9%8A%D9%85%D9%8A%D9%80%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B3%D9%81%D8%B1" 
        target="_blank" 
        class="fixed bottom-6 left-6 z-50 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-emerald-600 transition hover:scale-110 group"
        title="تواصل عبر الواتساب">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300">
-            محادثة مباشرة الواتساب (0096899290140)
+            محادثة مباشرة الواتساب (+968 99290140)
         </span>
     </a>
 
@@ -680,10 +680,22 @@
 
     <script>
         // Real WhatsApp Number for Madian Alsulaimi
-        const OMAN_WHATSAPP = "0096899290140";
+        const OMAN_WHATSAPP = "96899290140";
 
         // Dynamic year setup
         document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Helper function to safely send WhatsApp messages with proper URL encoding & popup handling
+        function openWhatsAppMessage(rawMessage) {
+            const encodedText = encodeURIComponent(rawMessage);
+            const url = `https://api.whatsapp.com/send?phone=${OMAN_WHATSAPP}&text=${encodedText}`;
+            
+            // Try opening in a new tab; if popup blocked, fallback to direct redirect
+            const win = window.open(url, '_blank');
+            if (!win || win.closed || typeof win.closed === 'undefined') {
+                window.location.href = url;
+            }
+        }
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -726,8 +738,8 @@
             const phone = document.getElementById('quickPhone').value;
             const notes = document.getElementById('quickNotes').value;
 
-            const text = `مرحباً أستاذ مدين السليمي 👋%0Aأود الاستفسار عن خدمة: *${service}*%0Aالاسم: ${name}%0Aرقم الهاتف: ${phone}%0Aتفاصيل إضافية: ${notes}`;
-            window.open(`https://wa.me/message/NBGJFBOWTCJ2N1 ?text=${text}`, '_blank');
+            const text = `مرحباً أستاذ مدين السليمي 👋\nأود الاستفسار عن خدمة: *${service}*\nالاسم: ${name}\nرقم الهاتف: ${phone}\nتفاصيل إضافية: ${notes}`;
+            openWhatsAppMessage(text);
         }
 
         // Calculated Booking via WhatsApp
@@ -738,8 +750,8 @@
             const incInsurance = document.getElementById('incInsurance').checked ? "نعم" : "لا";
             const incCar = document.getElementById('incCar').checked ? "نعم" : "لا";
 
-            const text = `السلام عليكم أستاذ مدين السليمي 👋%0Aأود تقديم طلب تجهيز شنجن وحساب التكلفة كالآتي:%0A- الوجهة: ${country}%0A- عدد المسافرين: ${pax}%0A- تشمل التأمين الصحي: ${incInsurance}%0A- تشمل حجز السيارة: ${incCar}%0A- التكلفة التقديرية: ${cost} ريال عماني%0Aرجاء التواصل معي لإكمال الإجراءات.`;
-            window.open(`https://wa.me/message/NBGJFBOWTCJ2N1 ?text=${مرحبا}`, '_blank');
+            const text = `السلام عليكم أستاذ مدين السليمي 👋\nأود تقديم طلب تجهيز شنجن وحساب التكلفة كالآتي:\n- الوجهة: ${country}\n- عدد المسافرين: ${pax}\n- تشمل التأمين الصحي: ${incInsurance}\n- تشمل حجز السيارة: ${incCar}\n- التكلفة التقديرية: ${cost} ريال عماني\nرجاء التواصل معي لإكمال الإجراءات.`;
+            openWhatsAppMessage(text);
         }
 
         // Modal Handling
@@ -764,8 +776,8 @@
             const phone = document.getElementById('modalPhone').value;
             const details = document.getElementById('modalDetails').value;
 
-            const text = `مرحباً أستاذ مدين السليمي 👋%0Aطلب جديد عبر الموقع الإلكتروني:%0Aالخدمة: *${service}*%0Aالاسم: ${name}%0Aرقم التواصل: ${phone}%0Aالتفاصيل: ${details}`;
-            window.open(`https://wa.me/message/NBGJFBOWTCJ2N1 ?text=${text}`, '_blank');
+            const text = `مرحباً أستاذ مدين السليمي 👋\nطلب جديد عبر الموقع الإلكتروني:\nالخدمة: *${service}*\nالاسم: ${name}\nرقم التواصل: ${phone}\nالتفاصيل: ${details}`;
+            openWhatsAppMessage(text);
             closeBookingModal();
         }
 
@@ -775,8 +787,8 @@
             const phone = document.getElementById('contactPhone').value;
             const msg = document.getElementById('contactMsg').value;
 
-            const text = `مرحباً أستاذ مدين السليمي 👋%0Aاستفسار مباشر من الموقع:%0Aالاسم: ${name}%0Aرقم الهاتف: ${phone}%0Aالرسالة: ${msg}`;
-            window.open(`https://wa.me/message/NBGJFBOWTCJ2N1 ?text=${text}`, '_blank');
+            const text = `مرحباً أستاذ مدين السليمي 👋\nاستفسار مباشر من الموقع:\nالاسم: ${name}\nرقم الهاتف: ${phone}\nالرسالة: ${msg}`;
+            openWhatsAppMessage(text);
         }
 
         // Initialize calculator on page load
