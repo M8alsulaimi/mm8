@@ -94,17 +94,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo with Profile Image -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="relative">
+                <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+                    <div class="relative shrink-0">
                         <img src="logo.jpg" 
                              alt="مدين السليمي MADIAN ALSULAIMI" 
-                             class="w-13 h-13 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-brand-gold shadow-md group-hover:scale-105 transition duration-300"
+                             class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-brand-gold shadow-md group-hover:scale-105 transition duration-300 shrink-0"
                              onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
-                        <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
                     </div>
-                    <div>
-                        <span class="block text-xl font-black text-brand-dark tracking-wide font-tajawal">مدين السليمي</span>
-                        <span class="block text-xs font-bold text-brand-gold uppercase tracking-widest">MADIAN ALSULAIMI TRAVEL</span>
+                    <div class="shrink">
+                        <span class="block text-base sm:text-xl font-black text-brand-dark tracking-wide font-tajawal leading-tight">مدين السليمي</span>
+                        <span class="block text-[10px] sm:text-xs font-bold text-brand-gold uppercase tracking-wider">MADIAN ALSULAIMI TRAVEL</span>
                     </div>
                 </a>
 
@@ -152,8 +152,8 @@
             
             <div class="md:col-span-7 space-y-6">
                 <!-- Owner Brand Highlight Badge -->
-                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-sm font-semibold">
-                    <img src="logo.jpg" alt="مدين السليمي" class="w-7 h-7 rounded-full object-cover border border-brand-gold" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
+                <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/20 text-white text-xs sm:text-sm font-semibold">
+                    <img src="logo.jpg" alt="مدين السليمي" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border border-brand-gold shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
                     <span>مدين السليمي | خدمات السفر والتأشيرات الموثوقة سلطنة عُمان</span>
                 </div>
 
@@ -420,7 +420,7 @@
                             
                             <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
                                 <input type="checkbox" id="incInsurance" checked onchange="calculateSchengenCost()" class="rounded text-brand-gold focus:ring-brand-gold w-4 h-4">
-                                <span>إصدار وثيقة التأمين الصحي المعتمد (+0 ر.ع للشخص)</span>
+                                <span>إصدار وثيقة التأمين الصحي المعتمد (+10 ر.ع للشخص)</span>
                             </label>
 
                             <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
@@ -434,7 +434,7 @@
                             <div>
                                 <span class="block text-xs text-slate-400">التكلفة التقديرية لإعداد الملف:</span>
                                 <div class="text-3xl font-black text-brand-gold font-tajawal mt-1">
-                                    <span id="totalCostOMR">25</span> <span class="text-base font-bold">ريال عماني</span>
+                                    <span id="totalCostOMR">35</span> <span class="text-base font-bold">ريال عماني</span>
                                 </div>
                             </div>
                             <button onclick="sendCalculatedBooking()" class="bg-brand-gold hover:bg-brand-goldHover text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow transition flex items-center gap-1.5">
@@ -522,7 +522,7 @@
                     <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-5">
                         <i class="fa-solid fa-money-bill-wave"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">أسعارنا هي الأفضل فالسوق </h3>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">أسعار شفافة بالريال العماني</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">
                         لا توجد رسوم خفية. تكاليف خدماتنا واضحة ومعلنة ومناسبة لجميع المسافرين.
                     </p>
@@ -546,10 +546,10 @@
         <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
             
             <div class="md:col-span-6 space-y-6">
-                <div class="flex items-center gap-4">
-                    <img src="logo.jpg" alt="مدين السليمي" class="w-16 h-16 rounded-full object-cover border-2 border-brand-gold shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <img src="logo.jpg" alt="مدين السليمي" class="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-brand-gold shadow-md shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
                     <div>
-                        <h2 class="text-3xl font-black font-tajawal">تواصل مع <span class="text-brand-gold">مدين السليمي</span> مباشرة</h2>
+                        <h2 class="text-2xl sm:text-3xl font-black font-tajawal">تواصل مع <span class="text-brand-gold">مدين السليمي</span> مباشرة</h2>
                         <span class="text-xs text-slate-400">MADIAN ALSULAIMI TRAVEL & TOURISM SERVICES</span>
                     </div>
                 </div>
@@ -739,7 +739,7 @@
             const incCar = document.getElementById('incCar').checked ? "نعم" : "لا";
 
             const text = `السلام عليكم أستاذ مدين السليمي 👋%0Aأود تقديم طلب تجهيز شنجن وحساب التكلفة كالآتي:%0A- الوجهة: ${country}%0A- عدد المسافرين: ${pax}%0A- تشمل التأمين الصحي: ${incInsurance}%0A- تشمل حجز السيارة: ${incCar}%0A- التكلفة التقديرية: ${cost} ريال عماني%0Aرجاء التواصل معي لإكمال الإجراءات.`;
-            window.open(`https://wa.me/${+96899290140}?text=${text}`, '_blank');
+            window.open(`https://wa.me/${OMAN_WHATSAPP}?text=${text}`, '_blank');
         }
 
         // Modal Handling
@@ -765,7 +765,7 @@
             const details = document.getElementById('modalDetails').value;
 
             const text = `مرحباً أستاذ مدين السليمي 👋%0Aطلب جديد عبر الموقع الإلكتروني:%0Aالخدمة: *${service}*%0Aالاسم: ${name}%0Aرقم التواصل: ${phone}%0Aالتفاصيل: ${details}`;
-            window.open(`https://wa.me/${+96899290140}?text=${text}`, '_blank');
+            window.open(`https://wa.me/${OMAN_WHATSAPP}?text=${text}`, '_blank');
             closeBookingModal();
         }
 
@@ -776,7 +776,7 @@
             const msg = document.getElementById('contactMsg').value;
 
             const text = `مرحباً أستاذ مدين السليمي 👋%0Aاستفسار مباشر من الموقع:%0Aالاسم: ${name}%0Aرقم الهاتف: ${phone}%0Aالرسالة: ${msg}`;
-            window.open(`https://wa.me/${+96899290140}?text=${text}`, '_blank');
+            window.open(`https://wa.me/${OMAN_WHATSAPP}?text=${text}`, '_blank');
         }
 
         // Initialize calculator on page load
