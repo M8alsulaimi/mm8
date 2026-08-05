@@ -1,786 +1,513 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مدين السليمي | MADIAN ALSULAIMI - خدمات السفر والسياحة</title>
     
-    <!-- Favicon -->
+    <!-- أيقونة الموقع وشعار المتصفح -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Fonts (Cairo & Tajawal) -->
+
+    <!-- الخطوط والأيقونات -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#0284c7',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                            gold: '#D97706',
-                            goldHover: '#B45309',
-                            dark: '#0F172A',
-                            navy: '#1E293B'
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        tajawal: ['Tajawal', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body {
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #00897b;
+            --accent-color: #f57c00;
+            --whatsapp-color: #25d366;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             font-family: 'Cairo', sans-serif;
-            background-color: #F8FAFC;
         }
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.93) 0%, rgba(30, 41, 59, 0.88) 100%), 
-                        url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
-        .card-hover {
-            transition: all 0.3s ease;
+
+        /* الهيدر وشريط التنقل */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* ضبط حجم الشعار بشكل متناسق ومستجيب */
+        .brand-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .brand-text h1 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            display: block;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            background: linear-gradient(135deg, rgba(13, 71, 161, 0.92), rgba(0, 137, 123, 0.85)), 
+                        url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* قسم الخدمات */
+        .container {
+            max-width: 1200px;
+            margin: 3.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .currency-tag {
+            display: inline-block;
+            background-color: #e0f2f1;
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+        }
+
+        /* حاسبة الخدمات */
+        .calculator-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .price-display {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 1.5rem 0;
+            background: #f0f4f9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: #0a192f;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-info {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.4rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* زر واتساب عائم */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 9999;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+            .brand-text h1 {
+                font-size: 1.1rem;
+            }
+            .hero h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
-<body class="text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body>
 
-    <div class="bg-brand-dark text-slate-300 text-sm py-2 px-4 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-6">
-                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> سلطنة عمان - مسقط</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-clock text-brand-gold"></i> خدمة العملاء: 8:00 ص - 10:00 م</span>
-            </div>
-            <div class="flex items-center gap-4 text-xs md:text-sm">
-                <span class="bg-brand-gold/20 text-brand-gold px-2.5 py-0.5 rounded-full font-bold border border-brand-gold/30">
-                    <i class="fa-solid fa-coins"></i> التعاملات بالريال العُماني (OMR)
-                </span>
-                <a href="https://instagram.com/m8_alsulaimi" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1">
-                    <i class="fa-brands fa-instagram text-brand-gold"></i> @m8_alsulaimi
-                </a>
-                <a href="tel:+96899290140" class="hover:text-brand-gold transition font-mono"><i class="fa-solid fa-phone pl-1"></i> +968 99290140</a>
-            </div>
-        </div>
-    </div>
+    <!-- زر واتساب عائم -->
+    <a href="https://wa.me/96899290140" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo with Profile Image -->
-                <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-                    <div class="relative shrink-0">
-                        <img src="logo.jpg" 
-                             alt="مدين السليمي MADIAN ALSULAIMI" 
-                             class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-brand-gold shadow-md group-hover:scale-105 transition duration-300 shrink-0"
-                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
-                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
-                    </div>
-                    <div class="shrink">
-                        <span class="block text-base sm:text-xl font-black text-brand-dark tracking-wide font-tajawal leading-tight">مدين السليمي</span>
-                        <span class="block text-[10px] sm:text-xs font-bold text-brand-gold uppercase tracking-wider">MADIAN ALSULAIMI TRAVEL</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-700">
-                    <a href="#home" class="hover:text-brand-500 transition py-2">الرئيسية</a>
-                    <a href="#services" class="hover:text-brand-500 transition py-2">الخدمات</a>
-                    <a href="#schengen" class="hover:text-brand-500 transition py-2 text-brand-500 font-bold">معاملات الشنجن 🇪🇺</a>
-                    <a href="#calculator" class="hover:text-brand-500 transition py-2">حاسبة التكلفة</a>
-                    <a href="#why-us" class="hover:text-brand-500 transition py-2">لماذا نحن؟</a>
-                    <a href="#contact" class="hover:text-brand-500 transition py-2">تواصل معنا</a>
-                </nav>
-
-                <!-- Action Button -->
-                <div class="hidden md:flex items-center gap-3">
-                    <button onclick="openBookingModal('طلب عام')" class="bg-gradient-to-r from-brand-gold to-yellow-600 hover:from-brand-goldHover hover:to-yellow-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition duration-200 flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>تواصل عبر الواتساب</span>
-                    </button>
+    <!-- الهيدر -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="brand">
+                <img src="logo.jpg" alt="مدين السليمي" class="brand-img">
+                <div class="brand-text">
+                    <h1>مدين السليمي</h1>
+                    <span>MADIAN ALSULAIMI TRAVEL</span>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-slate-700 hover:text-brand-500 focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Drawer -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 font-semibold">
-            <a href="#home" class="block py-2 text-slate-700 hover:text-brand-500">الرئيسية</a>
-            <a href="#services" class="block py-2 text-slate-700 hover:text-brand-500">الخدمات</a>
-            <a href="#schengen" class="block py-2 text-brand-500 font-bold">معاملات الشنجن 🇪🇺</a>
-            <a href="#calculator" class="block py-2 text-slate-700 hover:text-brand-500">حاسبة التكلفة</a>
-            <a href="#why-us" class="block py-2 text-slate-700 hover:text-brand-500">لماذا نحن؟</a>
-            <a href="#contact" class="block py-2 text-slate-700 hover:text-brand-500">تواصل معنا</a>
-            <button onclick="openBookingModal('طلب عام')" class="w-full bg-brand-gold text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow">
-                <i class="fa-brands fa-whatsapp"></i> احجز الآن عبر الواتساب
-            </button>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#calculator">حاسبة التكلفة</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
         </div>
     </header>
 
-    <section id="home" class="hero-gradient min-h-[620px] flex items-center relative text-white py-16 px-4">
-        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
-            
-            <div class="md:col-span-7 space-y-6">
-                <!-- Owner Brand Highlight Badge -->
-                <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/20 text-white text-xs sm:text-sm font-semibold">
-                    <img src="logo.jpg" alt="مدين السليمي" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border border-brand-gold shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
-                    <span>مدين السليمي | خدمات السفر والتأشيرات الموثوقة سلطنة عُمان</span>
-                </div>
-
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight font-tajawal">
-                    وجهتك لإنهاء كافة <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500">معاملات السفر والشنجن</span> بالريال العماني
-                </h1>
-                <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-                    نقدم خدمات متكاملة تتضمن حجز تذاكر الطيران، تجهيز ملفات تأشيرة الشنجن الأوروبية المعتمدة، التأمين الصحي المعتمد للسفر، وحجوزات السيارات والفنادق بأسعار تنافسية.
-                </p>
-
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <button onclick="openBookingModal('تأشيرة شنجن')" class="bg-brand-gold hover:bg-brand-goldHover text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition flex items-center gap-3">
-                        <i class="fa-solid fa-passport text-xl"></i>
-                        <span>تقديم طلب شنجن (OMR)</span>
-                    </button>
-                    <a href="#services" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3.5 rounded-xl transition backdrop-blur-sm flex items-center gap-2">
-                        <span>استعرض الخدمات</span>
-                        <i class="fa-solid fa-arrow-left text-sm"></i>
-                    </a>
-                </div>
-
-                <!-- Badges -->
-                <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-center sm:text-right">
-                    <div>
-                        <span class="block text-2xl font-black text-brand-gold">100%</span>
-                        <span class="text-xs text-slate-300">متابعة دقيقة للملفات</span>
-                    </div>
-                    <div>
-                        <span class="block text-2xl font-black text-brand-gold">OMR</span>
-                        <span class="text-xs text-slate-300">أسعار شفافة بالريال العُماني</span>
-                    </div>
-                    <div>
-                        <span class="block text-2xl font-black text-brand-gold">24/7</span>
-                        <span class="text-xs text-slate-300">استشارات وإجابات سريعة</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quick Inquiry Card -->
-            <div class="md:col-span-5">
-                <div class="glass-card rounded-2xl p-6 sm:p-8 text-slate-800 shadow-2xl relative">
-                    <div class="absolute -top-3 -right-3 bg-brand-gold text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                        خدمة سريعة
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-paper-plane text-brand-500"></i>
-                        استفسر عن رحلتك القادمة
-                    </h3>
-
-                    <form id="heroQuickForm" onsubmit="submitQuickForm(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1">الخدمة المطلوبة</label>
-                            <select id="quickService" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-500 font-semibold">
-                                <option value="تجهيز معاملة شنجن">تجهيز معاملة تأشيرة الشنجن 🇪🇺</option>
-                                <option value="حجز تذاكر طيران">حجز تذاكر طيران ✈️</option>
-                                <option value="تأمين صحي للسفر">تأمين صحي معتمد للسفر 🏥</option>
-                                <option value="حجز سيارات وسائقين">حجز سيارات وسائقين 🚗</option>
-                                <option value="حجز فندقي وباقات سياحية">حجز فنادق وبرامج سياحية 🏨</option>
-                            </select>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="block text-xs font-bold text-slate-600 mb-1">الاسم الكريم</label>
-                                <input type="text" id="quickName" placeholder="محمد السالمي" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-slate-600 mb-1">رقم الهاتف</label>
-                                <input type="tel" id="quickPhone" placeholder="99290140" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-500">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1">وجهة السفر والملاحظات</label>
-                            <textarea id="quickNotes" rows="2" placeholder="مثال: زيارة فرنسا وإيطاليا لعدد 3 أشخاص" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-500"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-brand-dark hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition shadow flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
-                            <span>إرسال الاستفسار مباشر للواتساب</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
+    <!-- قسم Hero الرئيسي -->
+    <section class="hero">
+        <img src="logo.jpg" alt="مدين السليمي" class="hero-logo">
+        <h2>وجهتك الأولى لسفر مريح وبأعلى معايير الجودة</h2>
+        <p>نستخرج لك تأشيرات الشنجن، نؤمن لك التذاكر، والتأمين الصحي، ونرتب لك أفضل السيارات والإقامات في جميع أنحاء العالم.</p>
+        <div class="hero-buttons">
+            <a href="#calculator" class="btn"><i class="fa-solid fa-calculator"></i> احسب التكلفة الان</a>
+            <a href="https://wa.me/96899290140" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> تواصل مباشر</a>
         </div>
     </section>
 
-    <section id="services" class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-brand-gold font-bold text-sm tracking-wider uppercase bg-amber-50 px-3 py-1 rounded-full border border-amber-200">خدماتنا الشاملة</span>
-            <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mt-3 mb-4 font-tajawal">حلول سفر متكاملة تحت إشراف مدين السليمي</h2>
-            <p class="text-slate-600 leading-relaxed">نضمن لك تجربة سفر خالية من التعقيدات بدءاً من إعداد التأشيرة والتأمين وحتى عودتك بسلامة الله.</p>
+    <!-- قسم الخدمات -->
+    <section class="container" id="services">
+        <div class="section-title">
+            <h3>خدماتنا السياحية</h3>
+            <p>جميع المعاملات والحجوزات مسعّرة بالريال العُماني (OMR)</p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            <!-- Service 1: Schengen -->
-            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm card-hover flex flex-col justify-between relative overflow-hidden">
-                <div class="w-3/4 h-1 bg-gradient-to-r from-blue-600 to-amber-500 absolute top-0 right-0"></div>
-                <div>
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-inner">
-                        <i class="fa-solid fa-passport"></i>
-                    </div>
-                    <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">الأكثر طلباً</span>
-                    <h3 class="text-xl font-bold text-brand-dark mt-2 mb-3">تجهيز معاملات الشنجن 🇪🇺</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        تعبئة الاستمارات بدقة، حجز المواعيد في السفارات، إعداد خطة السفر والحجوزات المبدئية للطيران والفنادق المقبولة.
-                    </p>
-                    <ul class="text-xs space-y-2 text-slate-500 mb-6 font-semibold">
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> مراجعة حاسمة للمستندات</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> تأمين المواعيد المتاحة</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> السعر بالريال العماني (OMR)</li>
-                    </ul>
-                </div>
-                <button onclick="openBookingModal('تجهيز معاملة الشنجن')" class="w-full py-2.5 bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 font-bold rounded-xl transition text-sm">
-                    طلب تجهيز الشنجن
-                </button>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-passport"></i>
+                <h4>تأشيرات الشنجن 🇪🇺</h4>
+                <p>تجهيز كامل للملفات، المواعيد، تأمين السفر، وحجوزات الطيران والفنادق المؤكدة.</p>
+                <span class="currency-tag">بالريال العُماني (OMR)</span>
             </div>
 
-            <!-- Service 2: Flight Tickets -->
-            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm card-hover flex flex-col justify-between relative overflow-hidden">
-                <div>
-                    <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-inner">
-                        <i class="fa-solid fa-plane"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">حجز تذاكر الطيران ✈️</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        مقارنة أسعار كافة خطوط الطيران العالمية والإقليمية للحصول على أفضل المسارات وأقل التكاليف مع إمكانية التعديل.
-                    </p>
-                    <ul class="text-xs space-y-2 text-slate-500 mb-6 font-semibold">
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> رحلات مباشرة وترانزيت مريح</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> إصدار فورى للتذاكر</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> خيارات الدفع بالريال العماني</li>
-                    </ul>
-                </div>
-                <button onclick="openBookingModal('حجز تذاكر طيران')" class="w-full py-2.5 bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 font-bold rounded-xl transition text-sm">
-                    استفسر عن التذاكر
-                </button>
+            <div class="service-card">
+                <i class="fa-solid fa-plane-departure"></i>
+                <h4>تذاكر الطيران ✈️</h4>
+                <p>حجز أفضل الرحلات على كافة الخطوط العالمية بأفضل الأسعار التنافسية.</p>
+                <span class="currency-tag">بالريال العُماني (OMR)</span>
             </div>
 
-            <!-- Service 3: Insurance -->
-            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm card-hover flex flex-col justify-between relative overflow-hidden">
-                <div>
-                    <div class="w-14 h-14 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-inner">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">التأمين الصحي للسفر 🏥</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        وثائق تأمين صحي معتمدة رسمياً لدى سفارات دول الشنجن وجميع الدول الكبرى وتغطي الحالات الطارئة الحادة وتأخر الأمتعة.
-                    </p>
-                    <ul class="text-xs space-y-2 text-slate-500 mb-6 font-semibold">
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> تغطية مالية معتمدة (30,000€+)</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> إصدار فوري عبر الواتساب</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> أسعار مناسبة بالريال العماني</li>
-                    </ul>
-                </div>
-                <button onclick="openBookingModal('التأمين الصحي للسفر')" class="w-full py-2.5 bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 font-bold rounded-xl transition text-sm">
-                    طلب وثيقة تأمين
-                </button>
+            <div class="service-card">
+                <i class="fa-solid fa-file-medical"></i>
+                <h4>التأمين الصحي للسفر 🏥</h4>
+                <p>وثائق تأمين صحي معتمدة دولياً ومقبولة لجميع السفارات والقنصليات.</p>
+                <span class="currency-tag">بالريال العُماني (OMR)</span>
             </div>
 
-            <!-- Service 4: Car Rentals -->
-            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm card-hover flex flex-col justify-between relative overflow-hidden">
-                <div>
-                    <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-inner">
-                        <i class="fa-solid fa-car"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">حجز السيارات والرحلات 🚗</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        تأجير سيارات بدون سائق أو مع سائق خاص في أوروبا وباقي الوجهات السياحية العالمية بأسعار مؤكدة وبدون رسوم خفية.
-                    </p>
-                    <ul class="text-xs space-y-2 text-slate-500 mb-6 font-semibold">
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> سيارات اقتصادية وعائلية وفارهة</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> استلام وتسليم من المطار</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 pl-1"></i> شروط واضحة وتأمين شامل</li>
-                    </ul>
-                </div>
-                <button onclick="openBookingModal('حجز سيارات وسائقين')" class="w-full py-2.5 bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 font-bold rounded-xl transition text-sm">
-                    حجز سيارة
-                </button>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="schengen" class="bg-slate-900 text-white py-20 px-4 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Info Left -->
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="bg-brand-gold/20 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full text-xs font-bold">
-                        تخصصنا الأول 🇪🇺
-                    </span>
-                    <h2 class="text-3xl sm:text-5xl font-black font-tajawal leading-tight">
-                        تجهيز ملف التأشيرة الأوروبية <br>
-                        <span class="text-brand-gold">الشنجن (Schengen)</span>
-                    </h2>
-                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                        نوفر عليك عناء وتوتر التقديم على الشنجن. يقوم مكتب مدين السليمي بتجهيز الملف المتكامل وفق الاشتراطات الدقيقة لكل سفارة (فرنسا، ألمانيا، إيطاليا، إسبانيا، هولندا، وغيرها).
-                    </p>
-
-                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                            <i class="fa-solid fa-file-signature text-2xl text-brand-gold mb-2"></i>
-                            <h4 class="font-bold text-white text-sm">تعبئة الابلكيشن الرسمية</h4>
-                            <p class="text-xs text-slate-400 mt-1">بدون أخطاء تسبب الرفض</p>
-                        </div>
-                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                            <i class="fa-solid fa-calendar-check text-2xl text-emerald-400 mb-2"></i>
-                            <h4 class="font-bold text-white text-sm">حجز المواعيد الرسمية</h4>
-                            <p class="text-xs text-slate-400 mt-1">متابعة دقيقة للمواعيد المتاحة</p>
-                        </div>
-                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                            <i class="fa-solid fa-hotel text-2xl text-blue-400 mb-2"></i>
-                            <h4 class="font-bold text-white text-sm">حجوزات طيران وفنادق</h4>
-                            <p class="text-xs text-slate-400 mt-1">حجوزات مبدئية مؤكدة معتمدة</p>
-                        </div>
-                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
-                            <i class="fa-solid fa-shield-halved text-2xl text-purple-400 mb-2"></i>
-                            <h4 class="font-bold text-white text-sm">تأمين صحي معتمد</h4>
-                            <p class="text-xs text-slate-400 mt-1">مطابق لجميع الشروط الأوروبية</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Calculator Right -->
-                <div id="calculator" class="lg:col-span-6 bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
-                    <h3 class="text-2xl font-black text-brand-dark mb-2 font-tajawal flex items-center justify-between">
-                        <span>حاسبة تكلفة الخدمات التقديرية</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full">بالريال العُماني (OMR)</span>
-                    </h3>
-                    <p class="text-xs text-slate-500 mb-6">احسب التكلفة التقريبية لتجهيز الملف وتأمين السفر قبل التواصل معنا</p>
-
-                    <div class="space-y-5">
-                        <!-- Country Select -->
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">اختر وجهة السفارة الأساسية</label>
-                            <select id="calcCountry" onchange="calculateSchengenCost()" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold">
-                                <option value="فرنسا">فرنسا 🇫🇷</option>
-                                <option value="ألمانيا">ألمانيا 🇩🇪</option>
-                                <option value="إيطاليا">إيطاليا 🇮🇹</option>
-                                <option value="إسبانيا">إسبانيا 🇪🇸</option>
-                                <option value="سويسرا">سويسرا 🇨🇭</option>
-                                <option value="النمسا">النمسا 🇦🇹</option>
-                                <option value="دولة أخرى">دولة شنجن أخرى 🇪🇺</option>
-                            </select>
-                        </div>
-
-                        <!-- Number of Applicants -->
-                        <div>
-                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
-                                <span>عدد المسافرين المتقدمين:</span>
-                                <span id="paxCountDisplay" class="text-brand-500 font-black text-sm">1 شخص</span>
-                            </div>
-                            <input type="range" id="paxRange" min="1" max="10" value="1" oninput="calculateSchengenCost()" class="w-full accent-brand-gold cursor-pointer">
-                        </div>
-
-                        <!-- Extras -->
-                        <div class="space-y-2 pt-2 border-t border-slate-100">
-                            <span class="block text-xs font-bold text-slate-700">الخدمات الإضافية المطلوبة:</span>
-                            
-                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
-                                <input type="checkbox" id="incInsurance" checked onchange="calculateSchengenCost()" class="rounded text-brand-gold focus:ring-brand-gold w-4 h-4">
-                                <span>إصدار وثيقة التأمين الصحي المعتمد (+10 ر.ع للشخص)</span>
-                            </label>
-
-                            <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-100 bg-slate-50 cursor-pointer text-xs font-semibold">
-                                <input type="checkbox" id="incCar" onchange="calculateSchengenCost()" class="rounded text-brand-gold focus:ring-brand-gold w-4 h-4">
-                                <span>إضافة ترتيب حجز سيارة سياحية (+15 ر.ع للمجموعة)</span>
-                            </label>
-                        </div>
-
-                        <!-- Result Box -->
-                        <div class="bg-slate-900 text-white p-5 rounded-2xl flex items-center justify-between mt-4">
-                            <div>
-                                <span class="block text-xs text-slate-400">التكلفة التقديرية لإعداد الملف:</span>
-                                <div class="text-3xl font-black text-brand-gold font-tajawal mt-1">
-                                    <span id="totalCostOMR">35</span> <span class="text-base font-bold">ريال عماني</span>
-                                </div>
-                            </div>
-                            <button onclick="sendCalculatedBooking()" class="bg-brand-gold hover:bg-brand-goldHover text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow transition flex items-center gap-1.5">
-                                <i class="fa-brands fa-whatsapp text-sm"></i>
-                                <span>اطلب هذا العرض</span>
-                            </button>
-                        </div>
-                        <p class="text-[10px] text-slate-400 text-center">* الرسوم أعلاه خاصة بأتعاب تجهيز الملف والتأمين ولا تشمل رسوم السفارة الرسمية المؤداة عند البصمة.</p>
-                    </div>
-                </div>
-
+            <div class="service-card">
+                <i class="fa-solid fa-car"></i>
+                <h4>حجز السيارات 🚗</h4>
+                <p>توفير سيارات مجهزة في جميع الدول الأوروبية والعالمية بسائق أو بدون سائق.</p>
+                <span class="currency-tag">بالريال العُماني (OMR)</span>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-brand-gold font-bold text-sm tracking-wider uppercase bg-amber-50 px-3 py-1 rounded-full border border-amber-200">أشهر الوجهات</span>
-            <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mt-3 mb-4 font-tajawal">وجهات يفضلها مسافرو سلطنة عمان</h2>
-            <p class="text-slate-600">نساعدك في تخطيط وحجز سفرك إلى أجمل البلدان السياحية</p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div class="relative rounded-2xl overflow-hidden shadow-md group h-80">
-                <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=600&auto=format&fit=crop" alt="سويسرا والنمسا" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end text-white">
-                    <span class="text-xs bg-amber-500 text-white font-bold px-2.5 py-0.5 rounded-full w-fit mb-2">تأشيرة شنجن</span>
-                    <h3 class="text-xl font-bold">سويسرا والنمسا 🇨🇭🇦🇹</h3>
-                    <p class="text-xs text-slate-300 mt-1">طبيعة خلابة، أرياف وجبال الألب</p>
-                </div>
+    <!-- حاسبة الخدمة السريعة -->
+    <section class="container" id="calculator">
+        <div class="calculator-section">
+            <div class="section-title">
+                <h3>حاسبة خدمات الشنجن والتأمين التقديرية</h3>
             </div>
-
-            <div class="relative rounded-2xl overflow-hidden shadow-md group h-80">
-                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=600&auto=format&fit=crop" alt="تركيا" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end text-white">
-                    <span class="text-xs bg-blue-500 text-white font-bold px-2.5 py-0.5 rounded-full w-fit mb-2">بدون فيزا معقدة</span>
-                    <h3 class="text-xl font-bold">تركيا 🇹🇷</h3>
-                    <p class="text-xs text-slate-300 mt-1">إسطنبول، طرابزون وشمال تركيا الساحر</p>
+            <form id="travelForm">
+                <div class="form-group">
+                    <label for="serviceType">نوع الخدمة المطلوب:</label>
+                    <select id="serviceType">
+                        <option value="schengen">تجهيز ملف شنجن كامل (مع تأمين)</option>
+                        <option value="insurance">تأمين صحي للسفر فقط</option>
+                        <option value="flight_hotel">حجوزات طيران وفنادق مؤكدة للملف</option>
+                    </select>
                 </div>
-            </div>
-
-            <div class="relative rounded-2xl overflow-hidden shadow-md group h-80">
-                <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=600&auto=format&fit=crop" alt="جورجيا وأذربيجان" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end text-white">
-                    <span class="text-xs bg-emerald-500 text-white font-bold px-2.5 py-0.5 rounded-full w-fit mb-2">عائلية ممتازة</span>
-                    <h3 class="text-xl font-bold">جورجيا وأذربيجان 🇬🇪🇦🇿</h3>
-                    <p class="text-xs text-slate-300 mt-1">رحلات اقتصادية وأجواء ممتازة</p>
-                </div>
-            </div>
-
-            <div class="relative rounded-2xl overflow-hidden shadow-md group h-80">
-                <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=600&auto=format&fit=crop" alt="تايلاند وماليزيا" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end text-white">
-                    <span class="text-xs bg-purple-500 text-white font-bold px-2.5 py-0.5 rounded-full w-fit mb-2">شرق آسيا</span>
-                    <h3 class="text-xl font-bold">تايلاند وماليزيا 🇹🇭🇲🇾</h3>
-                    <p class="text-xs text-slate-300 mt-1">جزر ساحرة وتسوق ممتع</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section id="why-us" class="bg-slate-100 py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mb-4 font-tajawal">لماذا تختار مدين السليمي؟</h2>
-                <p class="text-slate-600">نضع الدقة والسرعة والأمانة في رأس أولوياتنا لخدمتكم بأفضل المعايير</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-slate-200/60">
-                    <div class="w-16 h-16 bg-amber-100 text-brand-gold rounded-full flex items-center justify-center text-2xl mx-auto mb-5">
-                        <i class="fa-solid fa-user-shield"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">خبرة ودقة عالية</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        معرفة كاملة بمتطلبات السفارات الشنجن وتفاصيلها لتفادي أي رفض أو تأخير في معالجة طلبك.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-slate-200/60">
-                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-5">
-                        <i class="fa-solid fa-money-bill-wave"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">أسعار شفافة بالريال العماني</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        لا توجد رسوم خفية. تكاليف خدماتنا واضحة ومعلنة ومناسبة لجميع المسافرين.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-slate-200/60">
-                    <div class="w-16 h-16 bg-blue-100 text-brand-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-5">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-3">تواصل واستجابة فورية</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        متابعة مستمرة وإجابات سريعة على جميع استفساراتك عبر الواتساب والإنستغرام والاتصال الهاتفي.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="bg-brand-dark text-white py-16 px-4">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
-            
-            <div class="md:col-span-6 space-y-6">
-                <div class="flex items-center gap-3 sm:gap-4">
-                    <img src="logo.jpg" alt="مدين السليمي" class="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-brand-gold shadow-md shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
-                    <div>
-                        <h2 class="text-2xl sm:text-3xl font-black font-tajawal">تواصل مع <span class="text-brand-gold">مدين السليمي</span> مباشرة</h2>
-                        <span class="text-xs text-slate-400">MADIAN ALSULAIMI TRAVEL & TOURISM SERVICES</span>
-                    </div>
+                <div class="form-group">
+                    <label for="persons">عدد المسافرين:</label>
+                    <input type="number" id="persons" min="1" value="1">
                 </div>
                 
-                <p class="text-slate-300 text-sm leading-relaxed">
-                    يسعدنا استقبال اتصالاتكم واستفساراتكم حول التأشيرات وحجوزات الطيران والتأمين الصحي وتأجير السيارات في أي وقت.
-                </p>
-
-                <div class="space-y-4 pt-2">
-                    <div class="flex items-center gap-4 bg-slate-800/60 p-4 rounded-xl border border-slate-700">
-                        <div class="w-12 h-12 bg-brand-gold/20 text-brand-gold rounded-xl flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <span class="block text-xs text-slate-400">الهاتف والواتساب المباشر</span>
-                            <a href="https://wa.me/96899290140" target="_blank" class="text-lg font-bold text-white hover:text-brand-gold font-mono">+968 9929 0140</a>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4 bg-slate-800/60 p-4 rounded-xl border border-slate-700">
-                        <div class="w-12 h-12 bg-pink-500/20 text-pink-400 rounded-xl flex items-center justify-center text-xl">
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <div>
-                            <span class="block text-xs text-slate-400">حساب الإنستغرام الرسمى</span>
-                            <a href="https://instagram.com/m8_alsulaimi" target="_blank" class="text-lg font-bold text-white hover:text-pink-400 font-mono">@m8_alsulaimi</a>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4 bg-slate-800/60 p-4 rounded-xl border border-slate-700">
-                        <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <span class="block text-xs text-slate-400">الموقع</span>
-                            <span class="text-sm font-semibold text-white">مسقط - سلطنة عمان 🇴🇲</span>
-                        </div>
-                    </div>
+                <div class="price-display">
+                    التكلفة التقديرية: <span id="totalPrice">25</span> ريال عُماني
                 </div>
-            </div>
 
-            <div class="md:col-span-6">
-                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-xl">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-white">
-                        <i class="fa-solid fa-envelope text-brand-gold"></i> أرسل رسالة مباشرة
-                    </h3>
-                    <form onsubmit="submitContactForm(event)" class="space-y-4 text-slate-800">
-                        <input type="text" id="contactName" placeholder="الاسم الكامل" required class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-sm focus:outline-none focus:border-brand-gold">
-                        <input type="tel" id="contactPhone" placeholder="رقم التواصل" required class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-sm focus:outline-none focus:border-brand-gold">
-                        <textarea id="contactMsg" rows="3" placeholder="تفاصيل استفسارك وحجزك..." required class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 text-sm focus:outline-none focus:border-brand-gold"></textarea>
-                        <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldHover text-white font-bold py-3.5 rounded-xl transition shadow flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span>إرسال مباشر للواتساب</span>
-                        </button>
-                    </form>
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-whatsapp" onclick="sendToWhatsApp()"><i class="fa-brands fa-whatsapp"></i> إرسال الطلب عبر الواتساب</button>
                 </div>
-            </div>
-
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-8 px-4 border-t border-slate-800 text-center text-sm">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
-                <img src="logo.jpg" alt="MADIAN ALSULAIMI" class="w-8 h-8 rounded-full border border-brand-gold" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
-                <p>© <span id="year">2026</span> مدين السليمي - MADIAN ALSULAIMI. جميع الحقوق محفوظة.</p>
-            </div>
-            <div class="flex gap-4 text-slate-300 text-lg">
-                <a href="https://instagram.com/m8_alsulaimi" target="_blank" class="hover:text-pink-400 transition" title="إنستغرام"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.me/96899290140" target="_blank" class="hover:text-emerald-400 transition" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="tel:+96899290140" class="hover:text-brand-gold transition" title="اتصال"><i class="fa-solid fa-phone"></i></a>
-            </div>
+    <!-- الفوتر -->
+    <footer id="contact">
+        <div class="footer-info">
+            <p><strong>مدين السليمي | MADIAN ALSULAIMI</strong></p>
+            <p>سلطنة عُمان 🇴🇲 | هاتف: 99290140 968+</p>
+        </div>
+        <p style="font-size:0.85rem; opacity:0.8;">جميع الحقوق محفوظة © 2026</p>
+        <div class="social-links">
+            <a href="https://wa.me/96899290140" target="_blank" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/m8_alsulaimi" target="_blank" title="إنستغرام"><i class="fa-brands fa-instagram"></i></a>
+            <a href="tel:+96899290140" title="إتصال هاتفي"><i class="fa-solid fa-phone"></i></a>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/96899290140?text=مرحباً%20أستاذ%20مدين%20السليمي،%20أود%20الاستفسار%20عن%20خدمات%20السفر" 
-       target="_blank" 
-       class="fixed bottom-6 left-6 z-50 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-emerald-600 transition hover:scale-110 group"
-       title="تواصل عبر الواتساب">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300">
-            محادثة مباشرة الواتساب (96899290140)
-        </span>
-    </a>
-
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative text-slate-800">
-            <button onclick="closeBookingModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl font-bold p-2">
-                &times;
-            </button>
-            
-            <div class="flex items-center gap-3 mb-3">
-                <img src="logo.jpg" alt="Logo" class="w-10 h-10 rounded-full border border-brand-gold" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0c4a6e/ffffff?text=MA';">
-                <div>
-                    <h3 class="text-xl font-black text-brand-dark font-tajawal" id="modalTitle">طلب خدمة السفر</h3>
-                    <p class="text-[11px] text-slate-500">سيتم توجيه طلبك مباشرة إلى الأستاذ مدين السليمي عبر الواتساب</p>
-                </div>
-            </div>
-
-            <form onsubmit="submitModalBooking(event)" class="space-y-4">
-                <input type="hidden" id="modalServiceType" value="طلب عام">
-                
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكريم</label>
-                    <input type="text" id="modalName" required placeholder="ادخل اسمك" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-gold">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">رقم التواصل</label>
-                    <input type="tel" id="modalPhone" required placeholder="99290140" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-gold">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">تفاصيل الطلب والوجهة</label>
-                    <textarea id="modalDetails" rows="3" placeholder="تاريخ السفر، عدد المسافرين، والوجهة..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-gold"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition shadow flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>تأكيد وإرسال عبر الواتساب</span>
-                </button>
-            </form>
-        </div>
-    </div>
-
+    <!-- البرمجة التفاعلية -->
     <script>
-        // Real WhatsApp Number for Madian Alsulaimi
-        const OMAN_WHATSAPP = "96899290140";
+        const serviceType = document.getElementById('serviceType');
+        const persons = document.getElementById('persons');
+        const totalPrice = document.getElementById('totalPrice');
 
-        // Dynamic year setup
-        document.getElementById('year').innerText = new Date().getFullYear();
+        // أسعار تقديرية بالريال العماني
+        const prices = {
+            schengen: 25,
+            insurance: 8,
+            flight_hotel: 15
+        };
 
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Schengen Calculator Logic
-        function calculateSchengenCost() {
-            const country = document.getElementById('calcCountry').value;
-            const pax = parseInt(document.getElementById('paxRange').value);
-            const incInsurance = document.getElementById('incInsurance').checked;
-            const incCar = document.getElementById('incCar').checked;
-
-            document.getElementById('paxCountDisplay').innerText = pax + (pax === 1 ? ' شخص' : ' أشخاص');
-
-            // Base rate per person (25 OMR)
-            let baseRate = 25;
-            let total = baseRate * pax;
-
-            // Insurance approx 10 OMR per person
-            if (incInsurance) {
-                total += (10 * pax);
-            }
-
-            // Car reservation flat 15 OMR per group
-            if (incCar) {
-                total += 15;
-            }
-
-            document.getElementById('totalCostOMR').innerText = total;
+        function calculateTotal() {
+            const selectedService = serviceType.value;
+            const count = parseInt(persons.value) || 1;
+            const total = prices[selectedService] * count;
+            totalPrice.innerText = total;
         }
 
-        // Quick Form Submission
-        function submitQuickForm(e) {
-            e.preventDefault();
-            const service = document.getElementById('quickService').value;
-            const name = document.getElementById('quickName').value;
-            const phone = document.getElementById('quickPhone').value;
-            const notes = document.getElementById('quickNotes').value;
+        serviceType.addEventListener('change', calculateTotal);
+        persons.addEventListener('input', calculateTotal);
 
-            const text = `مرحباً أستاذ مدين السليمي 👋%0Aأود الاستفسار عن خدمة: *${service}*%0Aالاسم: ${name}%0Aرقم الهاتف: ${phone}%0Aتفاصيل إضافية: ${notes}`;
-            window.open(`https://wa.me/${OMAN_WHATSAPP}?text=${text}`, '_blank');
+        function sendToWhatsApp() {
+            // رقم الهاتف المباشر المحدث
+            const phone = "96899290140"; 
+            const serviceName = serviceType.options[serviceType.selectedIndex].text;
+            const count = persons.value;
+            const total = totalPrice.innerText;
+
+            const message = `مرحباً أستاذ مدين السليمي، أود الإستفسار عن الخدمة التالية:%0A- الخدمة: ${serviceName}%0A- عدد الأشخاص: ${count}%0A- التكلفة التقديرية: ${total} ريال عُماني`;
+            
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
-
-        // Calculated Booking via WhatsApp
-        function sendCalculatedBooking() {
-            const country = document.getElementById('calcCountry').value;
-            const pax = document.getElementById('paxRange').value;
-            const cost = document.getElementById('totalCostOMR').innerText;
-            const incInsurance = document.getElementById('incInsurance').checked ? "نعم" : "لا";
-            const incCar = document.getElementById('incCar').checked ? "نعم" : "لا";
-
-            const text = `السلام عليكم أستاذ مدين السليمي 👋%0Aأود تقديم طلب تجهيز شنجن وحساب التكلفة كالآتي:%0A- الوجهة: ${country}%0A- عدد المسافرين: ${pax}%0A- تشمل التأمين الصحي: ${incInsurance}%0A- تشمل حجز السيارة: ${incCar}%0A- التكلفة التقديرية: ${cost} ريال عماني%0Aرجاء التواصل معي لإكمال الإجراءات.`;
-            window.open(`https://wa.me/${OMAN_WHATSAPP}?text=${text}`, '_blank');
-        }
-
-        // Modal Handling
-        function openBookingModal(serviceName) {
-            document.getElementById('modalServiceType').value = serviceName;
-            document.getElementById('modalTitle').innerText = 'طلب: ' + serviceName;
-            const modal = document.getElementById('bookingModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeBookingModal() {
-            const modal = document.getElementById('bookingModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        function submitModalBooking(e) {
-            e.preventDefault();
-            const service = document.getElementById('modalServiceType').value;
-            const name = document.getElementById('modalName').value;
-            const phone = document.getElementById('modalPhone').value;
-            const details = document.getElementById('modalDetails').value;
-
-            const text = `مرحباً أستاذ مدين السليمي 👋%0Aطلب جديد عبر الموقع الإلكتروني:%0Aالخدمة: *${service}*%0Aالاسم: ${name}%0Aرقم التواصل: ${phone}%0Aالتفاصيل: ${details}`;
-            window.open(`https://wa.me/${96899290140}?text=${text}`, '_blank');
-            closeBookingModal();
-        }
-
-        function submitContactForm(e) {
-            e.preventDefault();
-            const name = document.getElementById('contactName').value;
-            const phone = document.getElementById('contactPhone').value;
-            const msg = document.getElementById('contactMsg').value;
-
-            const text = `مرحباً أستاذ مدين السليمي 👋%0Aاستفسار مباشر من الموقع:%0Aالاسم: ${name}%0Aرقم الهاتف: ${phone}%0Aالرسالة: ${msg}`;
-            window.open(`https://wa.me/${96899290140}?text=${text}`, '_blank');
-        }
-
-        // Initialize calculator on page load
-        calculateSchengenCost();
     </script>
 </body>
 </html>
